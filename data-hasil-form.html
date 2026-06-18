@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Hasil Form MTC Kids - Virtual Gathering 30 Juni 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;600;700;800;900&display=swap');
+
+    :root {
+      --teal: #0b7778;
+      --teal-2: #13a49f;
+      --blue: #2d67b2;
+      --navy: #17343d;
+      --ink: #18323c;
+      --muted: #607680;
+      --paper: #fff9eb;
+      --yellow: #ffd35a;
+      --orange: #ff9f29;
+      --mint: #dcf8df;
+      --rose: #ffe1d9;
+      --line: rgba(21, 67, 76, .16);
+      --shadow: 0 20px 45px rgba(22, 50, 59, .14);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255,255,255,.9) 0 30px, transparent 31px),
+        radial-gradient(circle at 54% 8%, rgba(255,255,255,.72) 0 38px, transparent 39px),
+        radial-gradient(circle at 90% 16%, rgba(255,255,255,.65) 0 25px, transparent 26px),
+        linear-gradient(180deg, #c9f6fb 0%, #a7ecf4 52%, #81dce8 100%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto -6vw -5vh -6vw;
+      height: 18vh;
+      background:
+        radial-gradient(80% 140% at 20% 0%, rgba(37, 181, 169, .9) 0 58%, transparent 59%),
+        radial-gradient(80% 140% at 76% 0%, rgba(45, 103, 178, .68) 0 56%, transparent 57%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 82px;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 {
+      font-family: "Baloo 2", "Nunito", system-ui, sans-serif;
+      letter-spacing: 0;
+      line-height: 1.05;
+    }
+
+    h1 {
+      margin-bottom: 14px;
+      color: var(--teal);
+      font-size: clamp(38px, 5vw, 64px);
+      font-weight: 800;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      color: var(--teal);
+      font-size: clamp(27px, 3vw, 40px);
+      font-weight: 800;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .hero {
+      min-height: 48vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, .72fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .panel, .card, .metric {
+      background: rgba(255, 249, 235, .96);
+      border: 3px solid rgba(45, 103, 178, .16);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel, .card { padding: clamp(22px, 3vw, 34px); }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      margin: 0 0 13px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .78);
+      color: var(--teal);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      max-width: 780px;
+      color: var(--navy);
+      font-size: clamp(18px, 1.45vw, 23px);
+      line-height: 1.42;
+      font-weight: 700;
+    }
+
+    .text, li {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.48;
+      font-weight: 600;
+    }
+
+    .steps {
+      display: grid;
+      gap: 11px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .steps li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .steps span {
+      flex: 0 0 30px;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--orange);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    button, .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 11px 16px;
+      border: 0;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #3f7fc2, #245f9f);
+      color: #fff;
+      font: 900 16px "Nunito", system-ui, sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 7px 0 rgba(36, 95, 159, .18);
+    }
+
+    button.secondary, .button.secondary { background: linear-gradient(180deg, #26b6aa, #158b89); box-shadow: 0 7px 0 rgba(21, 139, 137, .18); }
+    button.light, .button.light { background: #fff; color: var(--teal); border: 2px solid rgba(11,119,120,.28); box-shadow: none; }
+    button.warn { background: linear-gradient(180deg, #ffb743, #f29420); color: #3e2900; box-shadow: 0 7px 0 rgba(242,148,32,.18); }
+    button:disabled { opacity: .62; cursor: not-allowed; }
+
+    .status {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 15px;
+      line-height: 1.38;
+      font-weight: 800;
+    }
+
+    .status.show { display: block; }
+    .status.ok { background: var(--mint); color: #17651d; }
+    .status.warn { background: #fff1ba; color: #725100; }
+    .status.err { background: var(--rose); color: #91291d; }
+
+    .section { margin-top: 22px; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .metric {
+      padding: 18px;
+      text-align: center;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--teal);
+      font-family: "Baloo 2", "Nunito", system-ui, sans-serif;
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .metric span {
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--teal);
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .field input, .field select {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 12px;
+      border: 2px solid rgba(11, 119, 120, .25);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--ink);
+      font: 700 15px "Nunito", system-ui, sans-serif;
+      outline: none;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 16px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 1240px;
+      border-collapse: collapse;
+      background: rgba(255, 249, 235, .98);
+    }
+
+    th, td {
+      padding: 11px 12px;
+      border: 2px solid rgba(11,119,120,.14);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+      line-height: 1.34;
+      font-weight: 600;
+    }
+
+    th {
+      background: var(--blue);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    td strong { color: var(--teal); }
+
+    @media (max-width: 920px) {
+      main { width: min(100% - 22px, 1180px); padding-top: 18px; }
+      .hero, .metrics, .filters { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      h1 { font-size: clamp(36px, 11vw, 52px); }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Data Hasil Form</p>
+        <h1>Dashboard Case MTC Kids</h1>
+        <p class="lead">Halaman ini digunakan admin/trainer untuk melihat input case, kendala, dan saran MTC Kids menjelang virtual gathering 30 Juni 2026.</p>
+        <div class="button-row">
+          <button class="secondary" type="button" id="refreshBtn">Refresh Data</button>
+          <button class="warn" type="button" id="exportBtn">Export CSV</button>
+          <a class="button light" href="form-input-mtc-kids.html">Buka Form Input</a>
+        </div>
+        <div class="status show warn" id="statusBox">Belum memuat data.</div>
+      </div>
+      <div class="panel">
+        <h2>Catatan Admin</h2>
+        <ul class="steps">
+          <li><span>1</span><div>Bagikan link form input ke MTC Kids.</div></li>
+          <li><span>2</span><div>Klik Refresh Data untuk menarik submit terbaru.</div></li>
+          <li><span>3</span><div>Gunakan Export CSV untuk mengolah hasil di spreadsheet.</div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="Ringkasan submit">
+      <article class="metric"><strong id="totalSubmits">0</strong><span>Total Submit</span></article>
+      <article class="metric"><strong id="sgMathCount">0</strong><span>SG Math</span></article>
+      <article class="metric"><strong id="sempoaCount">0</strong><span>Sempoa</span></article>
+      <article class="metric"><strong id="highPriorityCount">0</strong><span>Prioritas Tinggi</span></article>
+    </section>
+
+    <section class="section card">
+      <h2>Filter Data</h2>
+      <div class="filters">
+        <div class="field">
+          <label for="programFilter">Program</label>
+          <select id="programFilter">
+            <option value="">Semua</option>
+            <option value="SG Math">SG Math</option>
+            <option value="Sempoa">Sempoa</option>
+            <option value="SG Math & Sempoa">SG Math & Sempoa</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="priorityFilter">Prioritas</label>
+          <select id="priorityFilter">
+            <option value="">Semua</option>
+            <option value="Tinggi">Tinggi</option>
+            <option value="Sedang">Sedang</option>
+            <option value="Rendah">Rendah</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="branchFilter">Cabang Homebase</label>
+          <input id="branchFilter" type="text" placeholder="Cari cabang">
+        </div>
+        <div class="field">
+          <label for="keywordFilter">Nama / Isi Case</label>
+          <input id="keywordFilter" type="text" placeholder="Cari nama atau kata kunci">
+        </div>
+      </div>
+    </section>
+
+    <section class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Tanggal</th>
+            <th>Waktu</th>
+            <th>Nama MTC Kids</th>
+            <th>Cabang Homebase</th>
+            <th>Program</th>
+            <th>Topik</th>
+            <th>Saran/Kendala</th>
+            <th>Contoh Kejadian</th>
+            <th>Dukungan Dibutuhkan</th>
+            <th>Prioritas</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody">
+          <tr><td colspan="10">Belum ada data.</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+    "use strict";
+
+    const RESULT_CONFIG = {
+      supabaseUrl: "https://suifgsvtcbrawzdhyuhk.supabase.co",
+      storageKey: "sb_publishable_9BdHYLcpIS0B6Z92WxXf_Q_WpWBswLB",
+      resultPrefix: "api/mathchamps-mtc-kids-case-feedback-20260630"
+    };
+
+    let allRows = [];
+
+    function el(id) { return document.getElementById(id); }
+
+    function setStatus(type, message) {
+      const box = el("statusBox");
+      box.className = "status show " + type;
+      box.textContent = message;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      }[char]));
+    }
+
+    function formatDate(value) {
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return "";
+      return date.toLocaleDateString("id-ID", { timeZone: "Asia/Jakarta", day: "2-digit", month: "short", year: "numeric" });
+    }
+
+    function formatTime(value) {
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return "";
+      return date.toLocaleTimeString("id-ID", { timeZone: "Asia/Jakarta", hour: "2-digit", minute: "2-digit", second: "2-digit" });
+    }
+
+    function normalize(row) {
+      const submittedAt = row.submitted_at || row.submittedAt || "";
+      return {
+        submittedAt,
+        date: row.submitted_date || formatDate(submittedAt),
+        time: row.submitted_time || formatTime(submittedAt),
+        namaMtcKids: row.namaMtcKids || "",
+        cabangHomebase: row.cabangHomebase || "",
+        programTerkait: row.programTerkait || "",
+        topik: Array.isArray(row.topik) ? row.topik : [],
+        isiSaranKendala: row.isiSaranKendala || "",
+        contohKejadian: row.contohKejadian || "",
+        dukunganDibutuhkan: row.dukunganDibutuhkan || "",
+        prioritas: row.prioritas || ""
+      };
+    }
+
+    function filteredRows() {
+      const program = el("programFilter").value;
+      const priority = el("priorityFilter").value.toLowerCase();
+      const branch = el("branchFilter").value.toLowerCase();
+      const keyword = el("keywordFilter").value.toLowerCase();
+
+      return allRows.filter((row) => {
+        const searchable = [
+          row.namaMtcKids,
+          row.cabangHomebase,
+          row.programTerkait,
+          row.topik.join(", "),
+          row.isiSaranKendala,
+          row.contohKejadian,
+          row.dukunganDibutuhkan,
+          row.prioritas
+        ].join(" ").toLowerCase();
+
+        return (!program || row.programTerkait === program) &&
+          (!priority || row.prioritas.toLowerCase().includes(priority)) &&
+          (!branch || row.cabangHomebase.toLowerCase().includes(branch)) &&
+          (!keyword || searchable.includes(keyword));
+      });
+    }
+
+    function renderMetrics(rows) {
+      el("totalSubmits").textContent = rows.length;
+      el("sgMathCount").textContent = rows.filter((row) => row.programTerkait.includes("SG Math")).length;
+      el("sempoaCount").textContent = rows.filter((row) => row.programTerkait.includes("Sempoa")).length;
+      el("highPriorityCount").textContent = rows.filter((row) => row.prioritas.toLowerCase().includes("tinggi")).length;
+    }
+
+    function renderTable() {
+      const rows = filteredRows();
+      renderMetrics(rows);
+
+      if (!rows.length) {
+        el("resultsBody").innerHTML = '<tr><td colspan="10">Belum ada data yang sesuai filter.</td></tr>';
+        return;
+      }
+
+      el("resultsBody").innerHTML = rows.map((row) => '<tr>' +
+        '<td>' + escapeHtml(row.date) + '</td>' +
+        '<td>' + escapeHtml(row.time) + '</td>' +
+        '<td><strong>' + escapeHtml(row.namaMtcKids) + '</strong></td>' +
+        '<td>' + escapeHtml(row.cabangHomebase) + '</td>' +
+        '<td>' + escapeHtml(row.programTerkait) + '</td>' +
+        '<td>' + escapeHtml(row.topik.join(", ")) + '</td>' +
+        '<td>' + escapeHtml(row.isiSaranKendala) + '</td>' +
+        '<td>' + escapeHtml(row.contohKejadian) + '</td>' +
+        '<td>' + escapeHtml(row.dukunganDibutuhkan) + '</td>' +
+        '<td>' + escapeHtml(row.prioritas) + '</td>' +
+      '</tr>').join("");
+    }
+
+    async function listStoredResults() {
+      const response = await fetch(RESULT_CONFIG.supabaseUrl + "/storage/v1/object/list/html-pages", {
+        method: "POST",
+        headers: {
+          apikey: RESULT_CONFIG.storageKey,
+          Authorization: "Bearer " + RESULT_CONFIG.storageKey,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          prefix: RESULT_CONFIG.resultPrefix,
+          limit: 1000,
+          offset: 0,
+          sortBy: { column: "created_at", order: "desc" }
+        })
+      });
+
+      if (!response.ok) throw new Error(await response.text());
+      const files = await response.json();
+      const rows = [];
+
+      for (const file of files.filter((item) => item.name && item.name.endsWith(".json"))) {
+        const url = RESULT_CONFIG.supabaseUrl + "/storage/v1/object/public/html-pages/" + RESULT_CONFIG.resultPrefix + "/" + file.name + "?v=" + Date.now();
+        const itemResponse = await fetch(url);
+        if (itemResponse.ok) rows.push(await itemResponse.json());
+      }
+
+      return rows;
+    }
+
+    async function loadResults() {
+      setStatus("warn", "Memuat data hasil...");
+      el("refreshBtn").disabled = true;
+      try {
+        allRows = (await listStoredResults())
+          .map(normalize)
+          .filter((row) => row.namaMtcKids || row.isiSaranKendala)
+          .sort((a, b) => String(b.submittedAt).localeCompare(String(a.submittedAt)));
+        setStatus("ok", "Data berhasil dimuat: " + allRows.length + " submit.");
+        renderTable();
+      } catch (error) {
+        console.error(error);
+        setStatus("err", "Data belum berhasil dimuat. Cek koneksi internet lalu klik Refresh Data lagi.");
+      } finally {
+        el("refreshBtn").disabled = false;
+      }
+    }
+
+    function csvValue(value) {
+      return '"' + String(value ?? "").replace(/"/g, '""') + '"';
+    }
+
+    function exportCsv() {
+      const rows = filteredRows();
+      if (!rows.length) {
+        setStatus("warn", "Belum ada data yang bisa di-export.");
+        return;
+      }
+
+      const headers = [
+        "submitted_at",
+        "tanggal_submit",
+        "waktu_submit",
+        "nama_mtc_kids",
+        "cabang_homebase",
+        "program_terkait",
+        "topik",
+        "isi_saran_kendala",
+        "contoh_kejadian",
+        "dukungan_dibutuhkan",
+        "prioritas"
+      ];
+
+      const lines = [headers.map(csvValue).join(",")];
+      rows.forEach((row) => {
+        lines.push([
+          row.submittedAt,
+          row.date,
+          row.time,
+          row.namaMtcKids,
+          row.cabangHomebase,
+          row.programTerkait,
+          row.topik.join("; "),
+          row.isiSaranKendala,
+          row.contohKejadian,
+          row.dukunganDibutuhkan,
+          row.prioritas
+        ].map(csvValue).join(","));
+      });
+
+      const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "data-hasil-form-mtc-kids-virtual-gathering-20260630.csv";
+      a.click();
+      URL.revokeObjectURL(a.href);
+      setStatus("ok", "CSV berhasil dibuat.");
+    }
+
+    ["programFilter", "priorityFilter", "branchFilter", "keywordFilter"].forEach((id) => {
+      el(id).addEventListener("input", renderTable);
+    });
+
+    el("refreshBtn").addEventListener("click", loadResults);
+    el("exportBtn").addEventListener("click", exportCsv);
+    loadResults();
+  </script>
+</body>
+</html>
