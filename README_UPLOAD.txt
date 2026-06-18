@@ -3,6 +3,9 @@
 Upload seluruh isi folder ini ke repository GitHub Pages.
 
 File utama:
+- index.html
+  Hub pembuka untuk link root GitHub Pages.
+
 - form-input-mtc-kids.html
   Link ini dibagikan ke MTC Kids untuk mengisi case, saran, dan kendala.
 
@@ -10,6 +13,7 @@ File utama:
   Link ini untuk admin/trainer melihat hasil submit, refresh data, filter, dan export CSV.
 
 Contoh URL setelah publish:
+- https://mathchamps-akademik.github.io/NAMA-REPO/
 - https://mathchamps-akademik.github.io/NAMA-REPO/form-input-mtc-kids.html
 - https://mathchamps-akademik.github.io/NAMA-REPO/data-hasil-form.html
 
