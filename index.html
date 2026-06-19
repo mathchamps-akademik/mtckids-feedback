@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MTC Kids Feedback - Virtual Gathering 30 Juni 2026</title>
+  <title>Form Input MTC Kids - Virtual Gathering 30 Juni 2026</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;600;700;800;900&display=swap');
 
     :root {
       --teal: #0b7778;
+      --teal-2: #13a49f;
       --blue: #2d67b2;
       --navy: #17343d;
       --ink: #18323c;
@@ -17,10 +18,13 @@
       --yellow: #ffd35a;
       --orange: #ff9f29;
       --mint: #dcf8df;
+      --rose: #ffe1d9;
+      --line: rgba(21, 67, 76, .16);
       --shadow: 0 20px 45px rgba(22, 50, 59, .14);
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -49,17 +53,13 @@
     main {
       position: relative;
       z-index: 1;
-      width: min(1080px, calc(100% - 32px));
-      min-height: 100vh;
+      width: min(1040px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 38px 0 82px;
-      display: grid;
-      align-items: center;
+      padding: 34px 0 82px;
     }
 
-    h1, h2, p { margin-top: 0; }
-
-    h1, h2 {
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 {
       font-family: "Baloo 2", "Nunito", system-ui, sans-serif;
       letter-spacing: 0;
       line-height: 1.05;
@@ -68,20 +68,28 @@
     h1 {
       margin-bottom: 14px;
       color: var(--teal);
-      font-size: clamp(40px, 5.4vw, 70px);
+      font-size: clamp(38px, 5vw, 64px);
       font-weight: 800;
     }
 
     h2 {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      color: var(--teal);
+      font-size: clamp(27px, 3vw, 40px);
+      font-weight: 800;
+    }
+
+    h3 {
+      margin-bottom: 8px;
       color: var(--blue);
-      font-size: clamp(26px, 3vw, 38px);
+      font-size: 22px;
       font-weight: 800;
     }
 
     .hero {
+      min-height: 62vh;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(310px, .78fr);
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, .72fr);
       gap: 24px;
       align-items: center;
     }
@@ -111,31 +119,25 @@
     }
 
     .lead {
-      max-width: 760px;
+      max-width: 780px;
       color: var(--navy);
       font-size: clamp(18px, 1.45vw, 23px);
       line-height: 1.42;
       font-weight: 700;
     }
 
-    .text {
+    .text, li {
       color: var(--muted);
       font-size: 17px;
       line-height: 1.48;
       font-weight: 600;
     }
 
-    .grid {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
     .tag-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 18px;
+      margin: 18px 0 0;
     }
 
     .tag {
@@ -154,6 +156,105 @@
     .tag.green { background: var(--mint); color: #236529; }
     .tag.orange { background: #ffe2ad; color: #744300; }
 
+    .steps {
+      display: grid;
+      gap: 11px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .steps li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .steps span {
+      flex: 0 0 30px;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--orange);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .section { margin-top: 22px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    label.check {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      padding: 11px 12px;
+      border: 2px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,.72);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.3;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    label.check input { margin-top: 3px; }
+
+    .field { margin-top: 15px; }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--teal);
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .field input, .field textarea, .field select {
+      width: 100%;
+      min-height: 48px;
+      padding: 11px 13px;
+      border: 2px solid rgba(11, 119, 120, .25);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--ink);
+      font: 700 16px "Nunito", system-ui, sans-serif;
+      outline: none;
+    }
+
+    .field textarea {
+      min-height: 154px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .field input:focus, .field textarea:focus, .field select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px rgba(18, 166, 160, .14);
+    }
+
+    .hint {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
     .button-row {
       display: flex;
       flex-wrap: wrap;
@@ -162,74 +263,251 @@
       margin-top: 18px;
     }
 
-    .button {
+    button, .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 46px;
       padding: 11px 16px;
+      border: 0;
       border-radius: 10px;
       background: linear-gradient(180deg, #3f7fc2, #245f9f);
       color: #fff;
       font: 900 16px "Nunito", system-ui, sans-serif;
       text-decoration: none;
+      cursor: pointer;
       box-shadow: 0 7px 0 rgba(36, 95, 159, .18);
     }
 
-    .button.secondary {
-      background: linear-gradient(180deg, #26b6aa, #158b89);
-      box-shadow: 0 7px 0 rgba(21, 139, 137, .18);
+    button.secondary { background: linear-gradient(180deg, #26b6aa, #158b89); box-shadow: 0 7px 0 rgba(21, 139, 137, .18); }
+    button.light, .button.light { background: #fff; color: var(--teal); border: 2px solid rgba(11,119,120,.28); box-shadow: none; }
+    button:disabled { opacity: .62; cursor: not-allowed; }
+
+    .status {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 15px;
+      line-height: 1.38;
+      font-weight: 800;
     }
 
-    .button.light {
-      background: #fff;
-      color: var(--teal);
-      border: 2px solid rgba(11,119,120,.28);
-      box-shadow: none;
-    }
+    .status.show { display: block; }
+    .status.ok { background: var(--mint); color: #17651d; }
+    .status.warn { background: #fff1ba; color: #725100; }
+    .status.err { background: var(--rose); color: #91291d; }
 
-    @media (max-width: 880px) {
-      main { width: min(100% - 22px, 1080px); align-items: start; padding-top: 24px; }
-      .hero { grid-template-columns: 1fr; }
-      h1 { font-size: clamp(36px, 11vw, 54px); }
+    .hidden { display: none !important; }
+
+    @media (max-width: 920px) {
+      main { width: min(100% - 22px, 1040px); padding-top: 18px; }
+      .hero, .grid, .topic-grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      h1 { font-size: clamp(36px, 11vw, 52px); }
     }
   </style>
 </head>
 <body>
   <main>
-    <section class="hero">
+    <section class="hero" id="landing">
       <div>
         <p class="eyebrow">Virtual Gathering 30 Juni 2026</p>
-        <h1>MTC Kids Feedback</h1>
-        <p class="lead">Hub untuk mengumpulkan case, kendala, dan saran dari MT Coach Kids terkait kelas SG Math dan Sempoa.</p>
-        <p class="text">Bagikan halaman form input ke MTC Kids. Halaman data hasil digunakan oleh admin/trainer untuk refresh data dan export CSV.</p>
+        <h1>Input Case & Saran MTC Kids</h1>
+        <p class="lead">Form ini digunakan untuk mengumpulkan case, kendala, dan saran dari MT Coach Kids tentang situasi yang sering muncul di kelas SG Math dan Sempoa saat ini.</p>
+        <p class="text">Rangkuman input akan membantu penyusunan pembahasan untuk virtual gathering seluruh pengajar Mathchamps, SG Math, dan Sempoa.</p>
         <div class="tag-row">
           <span class="tag blue">SG Math</span>
           <span class="tag green">Sempoa</span>
           <span class="tag orange">MT Coach Kids</span>
+          <span class="tag">Teacher Support</span>
         </div>
       </div>
-
       <div class="panel">
-        <h2>Pilih Halaman</h2>
-        <div class="grid">
-          <article class="card">
-            <h2>Form Input MTC Kids</h2>
-            <p class="text">Untuk MTC Kids mengisi case, kendala, dan saran dari cabang.</p>
-            <div class="button-row">
-              <a class="button" href="form-input-mtc-kids.html">Buka Form Input</a>
-            </div>
-          </article>
-          <article class="card">
-            <h2>Data Hasil Form</h2>
-            <p class="text">Untuk admin/trainer melihat hasil submit, filter data, dan export CSV.</p>
-            <div class="button-row">
-              <a class="button secondary" href="data-hasil-form.html">Buka Data Hasil</a>
-            </div>
-          </article>
+        <h2>Yang Perlu Disampaikan</h2>
+        <ul class="steps">
+          <li><span>1</span><div>Case yang sering muncul di kelas, baik dari siswa, teacher, parents, maupun operasional cabang.</div></li>
+          <li><span>2</span><div>Dampaknya ke proses belajar, suasana kelas, progress siswa, atau komunikasi dengan parents.</div></li>
+          <li><span>3</span><div>Saran dukungan yang dibutuhkan: training, materi, SOP, tools, contoh komunikasi, atau coaching lanjutan.</div></li>
+        </ul>
+        <div class="button-row">
+          <a class="button" href="#form-section">Mulai Isi Form</a>
         </div>
       </div>
     </section>
+
+    <section class="section card" id="form-section">
+      <p class="eyebrow">Form Input MTC Kids</p>
+      <h2>Saran & Kendala Cabang</h2>
+      <p class="text">Isi dengan jelas dan konkret. Tidak perlu panjang, yang penting case-nya bisa dipahami dan ditindaklanjuti.</p>
+
+      <form id="caseForm">
+        <div class="grid">
+          <div class="field">
+            <label for="mtcName">Nama MTC Kids</label>
+            <input id="mtcName" name="mtcName" type="text" placeholder="Contoh: Kak Nabila" required>
+          </div>
+
+          <div class="field">
+            <label for="homebase">Cabang homebase</label>
+            <input id="homebase" name="homebase" type="text" placeholder="Contoh: Bintaro / Bekasi / Bandung" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="programFocus">Program yang berkaitan</label>
+          <select id="programFocus" name="programFocus" required>
+            <option value="SG Math">SG Math</option>
+            <option value="Sempoa">Sempoa</option>
+            <option value="SG Math & Sempoa">SG Math & Sempoa</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Topik yang ingin dibahas</label>
+          <div class="topic-grid">
+            <label class="check"><input type="checkbox" name="topics" value="Siswa sulit fokus"> Siswa sulit fokus</label>
+            <label class="check"><input type="checkbox" name="topics" value="Gap kemampuan siswa"> Gap kemampuan siswa</label>
+            <label class="check"><input type="checkbox" name="topics" value="Konsep SG Math sulit dipahami"> Konsep SG Math sulit dipahami</label>
+            <label class="check"><input type="checkbox" name="topics" value="Teknik Sempoa/Fingering"> Teknik Sempoa/Fingering</label>
+            <label class="check"><input type="checkbox" name="topics" value="Manajemen kelas"> Manajemen kelas</label>
+            <label class="check"><input type="checkbox" name="topics" value="Komunikasi parents"> Komunikasi parents</label>
+            <label class="check"><input type="checkbox" name="topics" value="Teacher support"> Teacher support</label>
+            <label class="check"><input type="checkbox" name="topics" value="Materi dan worksheet"> Materi dan worksheet</label>
+            <label class="check"><input type="checkbox" name="topics" value="Best practice"> Best practice</label>
+          </div>
+          <p class="hint">Boleh pilih lebih dari satu. Ini membantu saat data dirangkum.</p>
+        </div>
+
+        <div class="field">
+          <label for="mainInput">Isi saran/kendala yang terjadi di cabang-cabang kamu</label>
+          <textarea id="mainInput" name="mainInput" placeholder="Contoh: Di beberapa cabang, teacher masih kesulitan menangani siswa yang kemampuan berhitungnya berbeda jauh dalam satu kelas. Dampaknya, siswa yang sudah bisa cepat bosan, sedangkan siswa yang butuh bantuan merasa tertinggal. Saran: butuh contoh diferensiasi aktivitas dan kalimat arahan untuk teacher." required></textarea>
+          <p class="hint">Tulis case, dampak, dan saran yang menurut kamu penting dibahas di virtual gathering.</p>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="realExample">Contoh kejadian nyata atau pola yang sering muncul</label>
+            <textarea id="realExample" name="realExample" placeholder="Opsional. Tulis contoh singkat tanpa menyebut nama lengkap siswa."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="supportNeeded">Dukungan yang dibutuhkan dari Academic/Training</label>
+            <textarea id="supportNeeded" name="supportNeeded" placeholder="Opsional. Contoh: training microteaching, bank kalimat untuk parents, panduan handling kelas campuran, contoh worksheet remedial."></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="priority">Tingkat prioritas menurut MTC</label>
+          <select id="priority" name="priority">
+            <option value="Tinggi - perlu dibahas di gathering">Tinggi - perlu dibahas di gathering</option>
+            <option value="Sedang - penting tapi bisa follow up setelah gathering">Sedang - penting tapi bisa follow up setelah gathering</option>
+            <option value="Rendah - cukup jadi catatan internal">Rendah - cukup jadi catatan internal</option>
+          </select>
+        </div>
+
+        <div class="button-row">
+          <button type="submit" id="submitBtn">Submit Masukan</button>
+          <button class="light" type="button" id="resetBtn">Reset Form</button>
+        </div>
+        <div class="status" id="statusBox" role="status"></div>
+      </form>
+    </section>
   </main>
+
+  <script>
+    "use strict";
+
+    const RESULT_CONFIG = {
+      supabaseUrl: "https://suifgsvtcbrawzdhyuhk.supabase.co",
+      storageKey: "sb_publishable_9BdHYLcpIS0B6Z92WxXf_Q_WpWBswLB",
+      resultPrefix: "api/mathchamps-mtc-kids-case-feedback-20260630"
+    };
+
+    const form = document.getElementById("caseForm");
+    const statusBox = document.getElementById("statusBox");
+    const submitBtn = document.getElementById("submitBtn");
+
+    function setStatus(type, message) {
+      statusBox.className = "status show " + type;
+      statusBox.textContent = message;
+    }
+
+    function clean(value) {
+      return String(value || "").replace(/[\n\r]+/g, " ").trim();
+    }
+
+    function selectedTopics() {
+      return Array.from(form.querySelectorAll('input[name="topics"]:checked')).map((input) => input.value);
+    }
+
+    function entryFromForm() {
+      const now = new Date();
+      return {
+        submitted_at: now.toISOString(),
+        submittedAt: now.toISOString(),
+        submitted_date: now.toLocaleDateString("id-ID", { timeZone: "Asia/Jakarta", day: "2-digit", month: "short", year: "numeric" }),
+        submitted_time: now.toLocaleTimeString("id-ID", { timeZone: "Asia/Jakarta", hour: "2-digit", minute: "2-digit", second: "2-digit" }),
+        program: "Virtual Gathering MTC Kids - Case Feedback",
+        namaMtcKids: clean(form.mtcName.value),
+        cabangHomebase: clean(form.homebase.value),
+        programTerkait: form.programFocus.value,
+        topik: selectedTopics(),
+        isiSaranKendala: clean(form.mainInput.value),
+        contohKejadian: clean(form.realExample.value),
+        dukunganDibutuhkan: clean(form.supportNeeded.value),
+        prioritas: form.priority.value
+      };
+    }
+
+    async function saveEntry(payload) {
+      const fileName = Date.now() + "-" + Math.random().toString(36).slice(2, 10) + ".json";
+      const objectPath = RESULT_CONFIG.resultPrefix + "/" + fileName;
+      const response = await fetch(RESULT_CONFIG.supabaseUrl + "/storage/v1/object/html-pages/" + objectPath, {
+        method: "POST",
+        headers: {
+          apikey: RESULT_CONFIG.storageKey,
+          Authorization: "Bearer " + RESULT_CONFIG.storageKey,
+          "Content-Type": "application/json",
+          "x-upsert": "false"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) throw new Error(await response.text());
+      return fileName;
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const entry = entryFromForm();
+
+      if (!entry.namaMtcKids || !entry.cabangHomebase || !entry.isiSaranKendala) {
+        setStatus("warn", "Nama MTC Kids, Cabang homebase, dan isi saran/kendala wajib diisi.");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      setStatus("warn", "Menyimpan masukan...");
+
+      try {
+        await saveEntry(entry);
+        setStatus("ok", "Masukan sudah tersimpan. Terima kasih, Kak!");
+        form.reset();
+        window.scrollTo({ top: document.getElementById("form-section").offsetTop - 12, behavior: "smooth" });
+      } catch (error) {
+        console.error(error);
+        setStatus("err", "Masukan belum berhasil tersimpan. Cek koneksi internet lalu coba submit lagi.");
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      form.reset();
+      statusBox.className = "status";
+      statusBox.textContent = "";
+    });
+  </script>
 </body>
 </html>
